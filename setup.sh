@@ -7,7 +7,7 @@ echo "$DOCKER_HUB_PASSWORD" | \
     docker login --username $DOCKER_HUB_USERNAME \
         --password-stdin 
 
-docker build --no-cache \
+docker build --no-cache --force-rm \
     --tag $DOCKER_HUB_USERNAME/react-k8s-sample:latest \
     --file ./Dockerfile .
 
