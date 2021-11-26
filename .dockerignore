@@ -1,0 +1,22 @@
+# General
+.env*
+.husky/
+Makefile
+setup.sh
+
+# Node
+node_modules/
+build/
+.node-version
+
+# Git
+.git/
+.github/
+.gitignore
+README.md
+LICENSE
+
+# Infrastructure
+Dockerfile
+.dockerignore
+manifest.yaml
