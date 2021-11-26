@@ -13,4 +13,4 @@ FROM nginx:1.20-alpine
 
 COPY --from=builder /usr/local/app/build /usr/share/nginx/html
 
-ENTRYPOINT [ "nginx", "-g", "daemon off;" ]
+ENTRYPOINT [ "nginx" "-g" "daemon off;" ]
