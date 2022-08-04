@@ -2,7 +2,7 @@
 .env*
 .husky/
 Makefile
-setup.sh
+push-to-registry.sh
 
 # Node
 node_modules/
@@ -17,6 +17,4 @@ README.md
 LICENSE
 
 # Infrastructure
-Dockerfile
-.dockerignore
-manifest.yaml
+k8s/

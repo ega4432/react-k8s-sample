@@ -2,14 +2,12 @@
 
 ## Overview
 
-This is a sample code that uses [Minikube](https://github.com/kubernetes/minikube) to deploy React locally on kubernetes.
+This is a sample code that uses Docker Desktop to deploy React locally on kubernetes.
 
 ## Pre Requirements
 
-- Git/GitHub
-- Docker
-- Minikube
-- Node
+- Docker Desktop
+- Node/npm
 
 ## Setup
 
@@ -22,7 +20,7 @@ This is a sample code that uses [Minikube](https://github.com/kubernetes/minikub
 % vim .env.local
 
 # Build docker image and push to your registry.
-% ./setup.sh
+% ./push-to-registry.sh
 
 # Edit manifest file line 17. Update the value of the key `spec.template.spec.containers[0].image` with your account name.
 % vim ./deployment-service.yaml
@@ -30,38 +28,28 @@ This is a sample code that uses [Minikube](https://github.com/kubernetes/minikub
 
 2. If you don't have a [Docker Hub](https://hub.docker.com/) account or you want to start quickly.
 
-You can use public sample image of this repository owner. The sample code is designed to use it, so there is no paticular change.
+You can use public sample image of this repository owner. The sample code is designed to use it, so there is no particular change.
 
 ## Usage
 
 ```sh
-# Start cluster using Minikube
-% minikube start
-
 # Dry run
-% kubectl apply --filename ./deployment-service.yaml \
+% kubectl apply --filename ./k8s/deployment-service.yaml \
   --dry-run=client
 
 # Apply
-% kubectl apply --filename ./deployment-service.yaml
+% kubectl apply --filename ./k8s/deployment-service.yaml
 
 # Check
 % kubectl get all | grep -v kubernetes
-
-# Publish service
-% minikube service react-k8s-sample
 ```
 
-The browser opened automatically and displayed the default React application :tada:
+The browser opened automatically and displayed the default React application.
 
 ### Cleanup
 
 ```sh
-% kubectl delete --filename ./deployment-service.yaml
-
-% minikube stop
-
-% minikube delete
+% kubectl delete --filename ./k8s/deployment-service.yaml
 ```
 
 ## Links

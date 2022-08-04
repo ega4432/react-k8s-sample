@@ -17,7 +17,7 @@ spec:
         image: ega4432/react-k8s-sample
         imagePullPolicy: IfNotPresent
         ports:
-        - containerPort: 80
+        - containerPort: 8080
 ---
 apiVersion: v1
 kind: Service
@@ -28,7 +28,7 @@ spec:
   selector:
     app: react-k8s-sample
   ports:
-    - port: 3000
-      targetPort: 80
+    - port: 8080
+      targetPort: 8080
       protocol: TCP
       name: react-k8s-sample
